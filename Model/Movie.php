@@ -37,9 +37,9 @@ class Movie
         $flags = ['de', 'fr', 'it', 'jp', 'kr', 'es', 'uk'];
         if (in_array($language, $flags)) {
 
-            return "/img/{$language}.png";
+            return "/php-oop-1/img/{$language}.png";
         } else {
-            return "/img/fake.png";
+            return "/php-oop-1/img/fake.png";
         }
     }
 

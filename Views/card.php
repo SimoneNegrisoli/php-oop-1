@@ -6,7 +6,7 @@
                 <?= $title ?>
             </h5>
             <div class="myflag-c">
-                <img src="<?php $flag ?>" alt="">
+                <img src="<?php echo $flag ?>" alt="" class="myflag">
             </div>
             <p class="card-text">
                 <?= $content ?>
