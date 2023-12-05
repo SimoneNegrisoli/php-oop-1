@@ -36,9 +36,10 @@ class Movie
     {
         $flags = ['de', 'fr', 'it', 'jp', 'kr', 'es', 'uk'];
         if (in_array($language, $flags)) {
-            return __DIR__ . "/../img/{$language}.png";
+
+            return "/img/{$language}.png";
         } else {
-            return __DIR__ . "/../img/fake.png";
+            return "/img/fake.png";
         }
     }
 
@@ -47,7 +48,7 @@ class Movie
     {
         $image = $this->poster_path;
         $title = $this->title;
-        $content = $this->overview;
+        $content = substr($this->overview, 0, 100) . '...';
         $custom = $this->getVote();
         $language = $this->original_language;
         $flag = $this->getFlag($language);
