@@ -5,8 +5,8 @@
             <h5 class="card-title">
                 <?= $title ?>
             </h5>
-            <div>
-                <?= $content ?>
+            <div class="myflag-c">
+                <img src="<?php $flag ?>" alt="">
             </div>
             <p class="card-text">
                 <?= $content ?>

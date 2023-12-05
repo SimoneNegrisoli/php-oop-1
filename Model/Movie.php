@@ -24,14 +24,25 @@ class Movie
     {
         $vote = ceil($this->vote_average / 2);
         $template = "<p>";
-        for ($n = 0; $n < $vote; $n++) {
-            $template .= $n <= $vote ? '<i class="fa-solid fa-star></i>' : '<i class="fa-regular fa-star></i>';
+        for ($n = 1; $n <= 5; $n++) {
+            $template .= $n <= $vote ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
         }
-        $template = "</p>";
+        $template .= "</p>";
         return $template;
-
-
     }
+
+
+    public function getFlag($language)
+    {
+        $flags = ['de', 'fr', 'it', 'jp', 'kr', 'es', 'uk'];
+        if (in_array($language, $flags)) {
+            return __DIR__ . "/../img/{$language}.png";
+        } else {
+            return __DIR__ . "/../img/fake.png";
+        }
+    }
+
+
     public function printCard()
     {
         $image = $this->poster_path;
@@ -39,6 +50,7 @@ class Movie
         $content = $this->overview;
         $custom = $this->getVote();
         $language = $this->original_language;
+        $flag = $this->getFlag($language);
         include __DIR__ . '/../Views/card.php';
     }
 }
@@ -63,4 +75,18 @@ foreach ($movieList as $item) {
 all'esterno della classe
 
 //1 mi faccio una funzione pubblica dentro la classe la chiamo print card
-//2 importo la card -->
+//2 importo la card
+
+
+
+// public function hasFlag($language)
+    // {
+    //     $flags = ['de', 'fr', 'it', 'jp', 'kr', 'es', 'uk'];
+    //     return in_array($language, $flags);
+    // }
+    // public function getFlag($language)
+    // {
+    //     $flag = "/../img/{$language}.png";
+    //     return $flag;
+    // }
+-->
